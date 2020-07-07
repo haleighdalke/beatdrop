@@ -1,0 +1,11 @@
+<h3><%= @user.name %></h3>
+<h5>Age: <%= @user.age %></h5>
+
+<h5>Songs played by you:</h5>
+<ul>
+
+<% @user.songs.each do |song| %>
+    <li>Played <%= pluralize(Play.total_plays(song), "Time") %> - <%= link_to "'#{song.title}'", song_path %> by <%= link_to "'#{song.artist.name}'", artist_path(song.artist) %></li>
+<% end %>
+
+</ul>
