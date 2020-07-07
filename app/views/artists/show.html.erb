@@ -1,0 +1,5 @@
+<h3><%= @artist.name %></h3>
+
+<% @artist.songs.each {|song| %>
+    <%= link_to song.title, song %>
+<% } %>
