@@ -30,13 +30,20 @@ data["tracks"].each {|track| Artist.create(name: track["subtitle"])}
 
 data["tracks"].each {|track| Song.create(title: track["title"], artist_id: Artist.find_or_create_by(name: track["subtitle"]).id, genre_id: Genre.all.sample.id)} 
 
-User.create("Haleigh", 24)
-User.create("Danira", 31)
-User.create("Zana", 22)
-User.create("Gabriel", 31)
-User.create("Brandon", 30)
+User.create(name: "Haleigh", age: 24)
+User.create(name: "Danira", age: 31)
+User.create(name: "Zana", age: 22)
+User.create(name: "Gabriel", age: 31)
+User.create(name: "Brandon", age: 30)
 
-50.times do 
-    if Plays.find_by(user_id: User.all.sample)
+50.times do
+    rand_user_id = User.all.sample.id
+    rand_song_id = Song.all.sample.id
+    play = Play.find_or_create_by(user_id: rand_user_id, song_id: rand_song_id)
+    if play.num_plays != nil
+        num = play.num_plays + 1
+        play.update(num_plays: num)
+    else
+        play.update(num_plays: 1)
+    end
 end
-binding.pry
