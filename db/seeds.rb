@@ -47,10 +47,3 @@ User.create(name: "Brandon", age: 30)
         play.update(num_plays: 1)
     end
 end
-<% s = @songs.collect {|song| %>
-    <% song.title %>
-<% }.sort %>
-
-<% s.each {|title| %>
-    <%= link_to title, song_path(s) %><br>
-<% } %>
