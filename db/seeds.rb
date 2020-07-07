@@ -30,4 +30,13 @@ data["tracks"].each {|track| Artist.create(name: track["subtitle"])}
 
 data["tracks"].each {|track| Song.create(title: track["title"], artist_id: Artist.find_or_create_by(name: track["subtitle"]).id, genre_id: Genre.all.sample.id)} 
 
+User.create("Haleigh", 24)
+User.create("Danira", 31)
+User.create("Zana", 22)
+User.create("Gabriel", 31)
+User.create("Brandon", 30)
+
+50.times do 
+    if Plays.find_by(user_id: User.all.sample)
+end
 binding.pry
