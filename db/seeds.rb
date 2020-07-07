@@ -12,15 +12,18 @@ Genre.destroy_all
 User.destroy_all
 Play.destroy_all
 
+http = Net::HTTP.new(url.host, url.port)
+http.use_ssl = true
+http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 
-spotify_albums = RestClient::Request.execute(
-    method: :get,
-    url: "https://api.spotify.com/v1/albums?ids=57bbb588db2d4e88a92eb48721b242d9&market=United%20States", #used the url given to us
-    headers: {
-        "Accept": "application/json",
-        "Content-Type": "application/json",
-        "Authorization": "Bearer BQABzc48X2fV9PSoWHwqBI5xl23WYUvX_t_dokTDnnUzAsUf5V63KdM3fIzKdzTvQLnGsmmrTBDJBMgurw5UlqhJx83_r81IH5NfXLZq_lh3nIrY23EfuyHmeZGUvjwthxULyXPPTa4XhEbfa9ma9jGTNvhr"})
 
+
+shazam_albums = RestClient::Request.execute(method: :get,
+    url: "https://shazam.p.rapidapi.com/songs/get-details?locale=en-US&key=40333609",
+    headers:{
+      "X-RapidAPI-Host" => "shazam.p.rapidapi.com",
+      "X-RapidAPI-Key" => "0e0b34b737msh886349c7f7f01c1p1e9534jsn1bc7a4ba56e0"
+    })
     #   "response_type": "code",
     #   "redirect_uri":  "https://api.spotify.com/v1/albums",
     #   "client_secret": "f89df44d2f064caebb6f69600dd981fc",
