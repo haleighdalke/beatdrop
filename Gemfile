@@ -57,4 +57,4 @@ gem "rest-client", "~> 2.1"
 
 gem 'pry'
 
-
+gem 'flash'

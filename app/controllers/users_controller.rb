@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 
     def create
         @user = User.new(user_params)
+        # display flash error messages if invalid
         @user.save
         redirect_to @user
     end
