@@ -12,18 +12,16 @@ Genre.destroy_all
 User.destroy_all
 Play.destroy_all
 
-http = Net::HTTP.new(url.host, url.port)
-http.use_ssl = true
-http.verify_mode = OpenSSL::SSL::VERIFY_NONE
-
 
 
 shazam_albums = RestClient::Request.execute(method: :get,
-    url: "https://shazam.p.rapidapi.com/songs/get-details?locale=en-US&key=40333609",
+    url: "https://shazam.p.rapidapi.com/songs/list-recommendations?locale=en-US&key=484129036",
     headers:{
       "X-RapidAPI-Host" => "shazam.p.rapidapi.com",
       "X-RapidAPI-Key" => "0e0b34b737msh886349c7f7f01c1p1e9534jsn1bc7a4ba56e0"
     })
+
+data = JSON.parse(shazam_albums)
     #   "response_type": "code",
     #   "redirect_uri":  "https://api.spotify.com/v1/albums",
     #   "client_secret": "f89df44d2f064caebb6f69600dd981fc",
