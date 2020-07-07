@@ -11,13 +11,14 @@ class UsersController < ApplicationController
     end
 
     def create
-        User.new(user_params)
-        redirect_to user_path
+        @user = User.new(user_params)
+        @user.save
+        redirect_to @user
     end
 
     def update
         @user.update(user_params)
-        redirect_to user_path
+        redirect_to @user
     end
 
     def destroy
