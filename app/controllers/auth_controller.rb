@@ -2,7 +2,11 @@ class AuthController < ApplicationController
 
 
     def login
-        
+        if session[:user_id]
+            @user = User.find(session[:user_id])
+        else
+            @user = nil
+        end
     end
 
     def verify_username
@@ -25,7 +29,6 @@ class AuthController < ApplicationController
 
     def logout
         session.clear
-        byebug
         redirect_to login_path
     end
 
