@@ -1,5 +1,12 @@
 <h1><%="#{@genre.name} Artists"%></h1>
 
 <ul><% @genre.artists.each {|artist| %>
-    <%= link_to artist.name, artist %><br>
+    <li><%= link_to artist.name, artist %></li>
 <% } %></ul>
+
+<br>
+<hr>
+<br>
+<%= button_to "All Songs", songs_path, method: :get %><br>
+<%= button_to "All Artists", artists_path, method: :get %><br>
+<%= button_to "All Genres", genres_path, method: :get %>
