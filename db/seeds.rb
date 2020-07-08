@@ -23,7 +23,7 @@ shazam_albums = RestClient::Request.execute(method: :get,
 
 data = JSON.parse(shazam_albums)
 
-genres = ["Rop", "Rock", "Rap", "R&B", "Country", "Alternative", "Blues", "Indie"]
+genres = ["Rap", "Rock", "R&B", "Country", "Alternative", "Blues", "Indie"]
 genres.each {|genre| Genre.create(name: genre)}
 
 data["tracks"].each {|track| Artist.create(name: track["subtitle"])}

@@ -10,7 +10,7 @@ class UsersController < ApplicationController
         @user = User.new(user_params)
         # display flash error messages if invalid
         @user.save
-        redirect_to @user
+        redirect_to login_path
     end
 
     def update
