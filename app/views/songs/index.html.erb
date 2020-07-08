@@ -3,4 +3,5 @@
 <% ordered_songs = @songs.order(:title) %>
 <ul><% ordered_songs.each {|song| %>
     <%= link_to song.title, song %><br>
+    <li><%= button_to "Play", plays_path, method: :post%> <
 <% } %></ul>
