@@ -5,7 +5,7 @@
 <ul>
 
 <% @user.songs.each do |song| %>
-    <li>Played <%= pluralize(Play.total_plays(song), "Time") %> - <%= link_to "'#{song.title}'", song %> by <%= link_to "'#{song.artist.name}'", artist_path(song.artist) %></li>
+    <li>Played <%= pluralize(Play.total_plays(song, @user.id), "Time") %> - <%= link_to "'#{song.title}'", song %> by <%= link_to "'#{song.artist.name}'", artist_path(song.artist) %></li>
 <% end %>
 
 </ul>

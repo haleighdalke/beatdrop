@@ -1,7 +1,9 @@
 <h1>Welcome to Beatdrop! Please login using your name: </h1>
 
 <%= flash[:message] %>
+<br>
 
+<h3>Session: <%= session[:user_id] %></h3>
 <%= form_for :auth do |f| %>
     <%= f.label "Name" %>
     <%= f.text_field :name %>
