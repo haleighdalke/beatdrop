@@ -1,14 +1,14 @@
-gitclass Play < ApplicationRecord
+class Play < ApplicationRecord
     belongs_to :user
     belongs_to :song
 
     def self.total_plays(song)
-        sum = 0
-        Play.all.each do |play|
-            if play.song_id == song.id
-                sum += play.num_plays
-            end
+        all_plays = Play.where(song_id: song.id)
+        # byebug
+        if !all_plays.empty?
+            all_plays.sum { |play| play.num_plays }
+        else
+            return nil
         end
-        sum
     end
 end
