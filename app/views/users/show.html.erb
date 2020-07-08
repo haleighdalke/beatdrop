@@ -1,0 +1,25 @@
+<h1><%= @user.name %></h1>
+<h3>Age: <%= @user.age %></h3>
+
+<h3>Songs played by you:</h3>
+<ul>
+
+<% @user.songs.each do |song| %>
+    <li>Played <%= pluralize(Play.total_plays(song), "Time") %> - <%= link_to "'#{song.title}'", song %> by <%= link_to "'#{song.artist.name}'", artist_path(song.artist) %></li>
+<% end %>
+
+</ul>
+
+<br>
+
+<h3><%= link_to "Discover Songs", songs_path %></h3>
+
+<br>
+
+<h3>Modify Your Profile</h3>
+
+<%= button_to "Edit", edit_user_path(@user), method: :get %>
+<br>
+<%= button_to "Delete", @user, method: :delete %>
+<br>
+<%= button_to "Logout", logout_path, method: :get %>
