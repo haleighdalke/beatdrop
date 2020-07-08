@@ -24,8 +24,7 @@ class AuthController < ApplicationController
     end
 
     def logout
-        session.clear
-        byebug
+
         redirect_to login_path
     end
 
