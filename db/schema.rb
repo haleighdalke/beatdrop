@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_06_214851) do
+ActiveRecord::Schema.define(version: 2020_07_08_213046) do
 
   create_table "artists", force: :cascade do |t|
     t.string "name"
@@ -45,6 +45,14 @@ ActiveRecord::Schema.define(version: 2020_07_06_214851) do
     t.integer "age"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "spotify_url"
+    t.string "href"
+    t.string "uri"
+    t.integer "spotify_id"
+    t.string "image"
+    t.string "country"
+    t.string "access_token"
+    t.string "refresh_token"
   end
 
 end

@@ -9,8 +9,14 @@ class Api::V1::AuthController < ApplicationController
             redirect_uri: 'http://localhost:3000/api/v1/user',
             scope: "user-library-read 
             playlist-read-collaborative 
+            playlist-modify-private 
+            user-modify-playback-state 
             user-read-private 
-            user-top-read",
+            user-top-read 
+            playlist-modify-public 
+            user-read-recently-played 
+            user-read-playback-state 
+            user-read-currently-playing",
             show_dialog: true
         }
         redirect_to "#{url}?#{query_params.to_query}"
@@ -37,8 +43,36 @@ class Api::V1::AuthController < ApplicationController
 
         #---
         # Create User
-        
+        @user = User.find_or_create_by(
+            name: user_params["display_name"],
+            age: rand(0..80),
+            spotify_url: user_params["external_urls"]["spotify"],
+            href: user_params["href"],
+            uri: user_params["uri"],
+            spotify_id: user_params["id"]
+        )
+
+        image = user_params["images"][0] ? user_params["images"][0]["url"] : nil
+        country = user_params["country"] ? user_params["country"] : nil
+
+        # Update the user if they have image or country
+        @user.update(image: image, country: country)
+
+        # Update the user access/refresh_tokens
+        # !!!!! DOUBLE CHECK THESE METHODS WORK
+        if @user.access_token_expired?
+            @user.refresh_access_token
+        else
+            @user.update(
+                access_token: auth_params["access_token"],
+                refresh_token: auth_params["refresh_token"]
+            )
+        end
+
+        #redirect to Front End app homepage
+        redirect_to "http://localhost:3000/songs"
     end
+    
 end
 
 
