@@ -12,3 +12,4 @@ gitclass Play < ApplicationRecord
         sum
     end
 end
+ #online is linking here as error message
