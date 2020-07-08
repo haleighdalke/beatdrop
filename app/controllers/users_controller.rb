@@ -20,6 +20,7 @@ class UsersController < ApplicationController
 
     def destroy
         @user.delete
+        session.clear
         redirect_to login_path
     end
 

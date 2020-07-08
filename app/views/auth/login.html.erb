@@ -1,17 +1,26 @@
-<h1>Welcome to Beatdrop! Please login using your name: </h1>
+<h1>Welcome to Beatdrop! </h1>
 
-<%= flash[:message] %>
-<br>
+<% if @user %>
+    <h3>You're logged in as "<%= @user.name %>." Please select an option:</h3>
+        <%= button_to "View Profile", @user, method: :get %> <br>
+        <%= button_to "Logout", logout_path, method: :get %>
 
-<h3>Session: <%= session[:user_id] %></h3>
-<%= form_for :auth do |f| %>
-    <%= f.label "Name" %>
-    <%= f.text_field :name %>
+<% else %>
+    <h3>Please login using your name:</h3>
 
-    <%= f.submit "Login" %>
+    <%= flash[:message] %>
+    <br>
+    <%= form_for :auth do |f| %>
+        <%= f.label "Name" %>
+        <%= f.text_field :name %>
+
+        <%= f.submit "Login" %>
+
+    <% end %>
+
+    <h3>Or Sign Up here: </h3>
+
+    <%= button_to 'Sign Up', new_user_path, method: :get %>
 
 <% end %>
 
-<h3>Or Sign Up here: </h3>
-
-<%= button_to 'Sign Up', new_user_path, method: :get %>

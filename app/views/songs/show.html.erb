@@ -1,4 +1,11 @@
 <h1><%= @song.title %></h1>
 
-<h3>Artist: <%= link_to @song.artist.name, @song.artist %></h3><br>
-Genre: <%= link_to @song.genre.name, @song.genre %>
+<h3>by <%= link_to @song.artist.name, @song.artist %></h3>
+<h3>Genre: <%= link_to @song.genre.name, @song.genre %></h3>
+
+<br>
+<hr>
+<br>
+<%= button_to "All Songs", songs_path, method: :get %><br>
+<%= button_to "All Artists", artists_path, method: :get %><br>
+<%= button_to "All Genres", genres_path, method: :get %>

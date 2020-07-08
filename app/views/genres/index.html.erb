@@ -1,5 +1,16 @@
 <h1> Genres </h1>
 
 <ul><% @genres.each {|genre| %>
-    <%= link_to genre.name, genre %><br>
-<% } %></ul>
+   <li><%= link_to genre.name, genre %></li> 
+<% } %>
+</ul>
+
+
+<%# show most popular genres or number of songs associated in a table? %>
+
+<br>
+<hr>
+<br>
+<%= button_to "All Songs", songs_path, method: :get %><br>
+<%= button_to "All Artists", artists_path, method: :get %><br>
+<%= button_to "All Genres", genres_path, method: :get %>
