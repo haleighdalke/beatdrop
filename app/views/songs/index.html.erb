@@ -1,6 +1,9 @@
 <h1> Songs </h1>
 
+<ul>
 <% ordered_songs = @songs.order(:title) %>
 <% ordered_songs.each {|song| %>
-    <%= link_to song.title, song %><br>
+   <li><%= button_to "Play", plays_path, method: :post, params: { song_id: song.id }%> <%= link_to song.title, song %></li> 
 <% } %>
+
+</ul>
