@@ -1,10 +1,20 @@
 <h1> Songs </h1>
 
-<ul>
+<table style="width:50%">
+  <tr>
+    <th>Play</th>
+    <th>Title</th>
+    <th>Artist</th>
+    <th>Genre</th>
+  </tr>
+
 <% ordered_songs = @songs.order(:title) %>
 <% ordered_songs.each {|song| %>
-   <li><%= button_to "Play", plays_path, method: :post, params: { song_id: song.id }%> <%= link_to song.title, song %></li> 
+  <tr>
+    <td><%= button_to "Play", plays_path, method: :post, params: { song_id: song.id }%></td>
+    <td><%= link_to song.title, song %></td>
+    <td><%= link_to song.artist.name, song.artist %></td>
+    <td><%= link_to song.genre.name, song.genre %></td>
+  </tr>
 <% } %>
-
-</ul>
-
+</table>
