@@ -11,6 +11,20 @@
   </head>
 
   <body>
+    <nav class="header sticky-top">
+      <a class="nav-brand">BeatDrop</a>
+      <a class="nav-item" href="<%=new_user_path%>">Sign Up</a>
+      <a class="nav-item" href="<%=login_path%>">Log In</a>
+    </nav>
+    <footer class="footer">
+      <a class="footer-item" href="<%=songs_path%>">All Songs</a>
+      <a class="footer-item" href="<%=artists_path%>">All Artists</a>
+      <a class="footer-item" href="<%=genres_path%>">All Genres</a>
+    </footer>
+
+    <link href="https://fonts.googleapis.com/css2?family=Ultra&display=swap" rel="stylesheet">
+    
     <%= yield %>
+    
   </body>
 </html>
