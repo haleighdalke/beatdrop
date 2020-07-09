@@ -6,44 +6,74 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Artist.destroy_all
-Song.destroy_all
-Genre.destroy_all
-User.destroy_all
-Play.destroy_all
+# Artist.destroy_all
+# Song.destroy_all
+# Genre.destroy_all
+# User.destroy_all
+# Play.destroy_all
 
+playlist = RestClient::Request.execute(method: :get,
+    url: "https://api.deezer.com/playlist/908622995")
 
+data = JSON.parse(playlist)
 
-shazam_albums = RestClient::Request.execute(method: :get,
-    url: "https://shazam.p.rapidapi.com/songs/list-recommendations?locale=en-US&key=484129036",
-    headers:{
-      "X-RapidAPI-Host" => "shazam.p.rapidapi.com",
-      "X-RapidAPI-Key" => "0e0b34b737msh886349c7f7f01c1p1e9534jsn1bc7a4ba56e0"
-    })
+data["tracks"]["data"].each do |track|
 
-data = JSON.parse(shazam_albums)
-
-genres = ["Rap", "Rock", "R&B", "Country", "Alternative", "Blues", "Indie"]
-genres.each {|genre| Genre.create(name: genre)}
-
-data["tracks"].each {|track| Artist.create(name: track["subtitle"])}
-
-data["tracks"].each {|track| Song.create(title: track["title"], artist_id: Artist.find_or_create_by(name: track["subtitle"]).id, genre_id: Genre.all.sample.id)} 
-
-User.create(name: "Haleigh", age: 24)
-User.create(name: "Danira", age: 31)
-User.create(name: "Zana", age: 22)
-User.create(name: "Gabriel", age: 31)
-User.create(name: "Brandon", age: 30)
-
-50.times do
-    rand_user_id = User.all.sample.id
-    rand_song_id = Song.all.sample.id
-    play = Play.find_or_create_by(user_id: rand_user_id, song_id: rand_song_id)
-    if play.num_plays != nil
-        num = play.num_plays + 1
-        play.update(num_plays: num)
-    else
-        play.update(num_plays: 1)
-    end
+    byebug
 end
+
+# for every playlist, we will go through each track and initialize the song, artist, and genre
+
+def initialize_artist(artist_id)
+    artist = RestClient::Request.execute(method: :get, url: "https://api.deezer.com/artist/#{artist_id}")
+    artist_data = JSON.parse(artist)
+
+    Artist.find_or_create_by(name: artist_data["name"], profile_link: artist_data["link"], image: artist_data["picture_big"])
+end
+
+def get_genre_data(genre_id)
+    genre = RestClient::Request.execute(method: :get,
+        url: "https://api.deezer.com/genre/#{genre_id}")
+    genre_data = JSON.parse(genre)
+
+end
+
+
+
+
+# shazam_albums = RestClient::Request.execute(method: :get,
+#     url: "https://shazam.p.rapidapi.com/songs/list-recommendations?locale=en-US&key=484129036",
+#     headers:{
+#       "X-RapidAPI-Host" => "shazam.p.rapidapi.com",
+#       "X-RapidAPI-Key" => "0e0b34b737msh886349c7f7f01c1p1e9534jsn1bc7a4ba56e0"
+#     })
+
+# data = JSON.parse(shazam_albums)
+
+# genres = ["Rap", "Rock", "R&B", "Country", "Alternative", "Blues", "Indie"]
+# genres.each {|genre| Genre.create(name: genre)}
+
+# data["tracks"].each {|track| Artist.create(name: track["subtitle"])}
+
+# data["tracks"].each {|track| Song.create(title: track["title"], artist_id: Artist.find_or_create_by(name: track["subtitle"]).id, genre_id: Genre.all.sample.id)} 
+
+# User.create(name: "Haleigh", age: 24)
+# User.create(name: "Danira", age: 31)
+# User.create(name: "Zana", age: 22)
+# User.create(name: "Gabriel", age: 31)
+# User.create(name: "Brandon", age: 30)
+
+# 50.times do
+#     rand_user_id = User.all.sample.id
+#     rand_song_id = Song.all.sample.id
+#     play = Play.find_or_create_by(user_id: rand_user_id, song_id: rand_song_id)
+#     if play.num_plays != nil
+#         num = play.num_plays + 1
+#         play.update(num_plays: num)
+#     else
+#         play.update(num_plays: 1)
+#     end
+# end
+
+#--------------
+
