@@ -1,13 +1,13 @@
 <%= form_for @artist do |f| %>
+
     <%= f.label "Name" %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name %><br>
 
     <%= f.label "Password" %>
     <%= f.password_field :password %>
 
-    <%= f.label "Confirm Your Password" %>
-    <%= f.password_field :
+    <%#= f.label "Password Confirmation" %>
+    <%#= f.password_field :password_confirmation %>
 
-    <%= f.submit "Sign Up" %>
-
+    <%= f.submit %>
 <% end %>
