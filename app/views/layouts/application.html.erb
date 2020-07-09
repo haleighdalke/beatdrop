@@ -13,8 +13,13 @@
   <body>
     <nav class="header sticky-top">
       <a class="nav-brand">BeatDrop</a>
-      <a class="nav-item" href="<%=new_user_path%>">Sign Up</a>
-      <a class="nav-item" href="<%=login_path%>">Log In</a>
+      <% if !logged_in? %>
+        <a class="nav-item" href="<%=new_user_path%>">Sign Up</a>
+        <a class="nav-item" href="<%=login_path%>">Log In</a>
+      <% else %>
+        <a class="nav-item" href="<%=logout_path%>">Logout</a>
+        <a class="nav-item" href="<%=edit_user_path(current_user)%>">Settings</a>
+      <% end %>
     </nav>
     <footer class="footer">
       <a class="footer-item" href="<%=songs_path%>">All Songs</a>

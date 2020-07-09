@@ -14,12 +14,3 @@
 
 <h3><%= link_to "Discover Songs", songs_path %></h3>
 
-<br>
-
-<h3>Modify Your Profile</h3>
-
-<%= button_to "Edit", edit_user_path(@user), method: :get %>
-<br>
-<%= button_to "Delete", @user, method: :delete %>
-<br>
-<%= button_to "Logout", logout_path, method: :get %>
