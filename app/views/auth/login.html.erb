@@ -1,8 +1,8 @@
 <h1>Welcome to Beatdrop! </h1>
 
-<% if @user %>
-    <h3>You're logged in as "<%= @user.name %>." Please select an option:</h3>
-        <%= button_to "View Profile", @user, method: :get %> <br>
+<% if current_user %>
+    <h3>You're logged in as "<%= current_user.name %>." Please select an option:</h3>
+        <%= button_to "View Profile", current_user, method: :get %> <br>
         <%= button_to "Logout", logout_path, method: :get %>
 
 <% else %>
