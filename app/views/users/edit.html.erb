@@ -1,3 +1,7 @@
-<h1>Edit User "<%= @user.name %>"</h1>
-
+<h1>Modify Profile for "<%= @user.name %>"</h1>
+<br>
+<h3>Edit Profile</h3>
 <%= render 'form' %>
+<br>
+<h3>Delete Profile</h3>
+<%= button_to "Delete User", @user, method: :delete %>
