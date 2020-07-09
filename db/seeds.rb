@@ -18,7 +18,8 @@ playlist = RestClient::Request.execute(method: :get,
 data = JSON.parse(playlist)
 
 data["tracks"]["data"].each do |track|
-
+    initialize_artist(track["artist"]["id"])
+    #initialize_genre()
     byebug
 end
 
@@ -31,15 +32,15 @@ def initialize_artist(artist_id)
     Artist.find_or_create_by(name: artist_data["name"], profile_link: artist_data["link"], image: artist_data["picture_big"])
 end
 
-def get_genre_data(genre_id)
-    genre = RestClient::Request.execute(method: :get,
-        url: "https://api.deezer.com/genre/#{genre_id}")
-    genre_data = JSON.parse(genre)
+# def initialize_genre(genre_id)
+#     genre = RestClient::Request.execute(method: :get, url: "https://api.deezer.com/genre/#{genre_id}")
+#     genre_data = JSON.parse(genre)
 
-end
+#     Genre.find_or_create_by(name: genre_data["name"], profile_link: genre_data["link"], image: genre_data["picture_big"])
+# end
 
 
-
+#----------OLD CODE--------------
 
 # shazam_albums = RestClient::Request.execute(method: :get,
 #     url: "https://shazam.p.rapidapi.com/songs/list-recommendations?locale=en-US&key=484129036",
