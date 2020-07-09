@@ -14,6 +14,8 @@
  *= require_self
  */
 
+
+
 .header {
     background-color: #343a40!important;
     height: 80px;
@@ -94,7 +96,7 @@ li {
 /* the dots from list*/
 
 a:link {
-    color: hotpink;
+    color: orange;
 }
 /* link that has not been click excluding navigation*/
 
@@ -102,9 +104,7 @@ a:visited {
     color: orange;
 }
 
-a:hover {
-    color: white;
-}
+
 
 /* link that has been click excluding navigation*/
 
@@ -112,5 +112,11 @@ a:hover {
 
 .song_media {
     display: inline-block;
-    
+
+}
+
+body a:hover {
+    color: #FF9933 !important;
+    font-weight: bold;
+
 }
