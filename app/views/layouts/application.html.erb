@@ -7,6 +7,7 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ultra&display=swap">
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
@@ -21,15 +22,18 @@
         <a class="nav-item" href="<%=edit_user_path(current_user)%>">Settings</a>
       <% end %>
     </nav>
+
+    <div class="transparent">
+    <%= yield %>
+    </div>
+
     <footer class="footer">
       <a class="footer-item" href="<%=songs_path%>">All Songs</a>
       <a class="footer-item" href="<%=artists_path%>">All Artists</a>
       <a class="footer-item" href="<%=genres_path%>">All Genres</a>
     </footer>
-
-    <link href="https://fonts.googleapis.com/css2?family=Ultra&display=swap" rel="stylesheet">
     
-    <%= yield %>
+    
     
   </body>
 </html>
