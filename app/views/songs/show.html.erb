@@ -1,7 +1,10 @@
+
 <h1><%= @song.title %></h1>
 
 <h3>by <%= link_to @song.artist.name, @song.artist %></h3>
 <h3>Genre: <%= link_to @song.genre.name, @song.genre %></h3>
 
 <br>
+<div class="song_media">
 <audio src="<%= @song.sound_link if @song.sound_link%>" autoplay controls></audio>
+</div>

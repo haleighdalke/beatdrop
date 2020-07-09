@@ -3,11 +3,15 @@
 
 <br>
 
-<h3>Songs played by you:</h3>
+<% if @user.songs.empty? %>
+    <h3>You haven't played any songs yet! <%= link_to "Explore", songs_path %></h3>
+<% else %>
+    <h3>Songs played by you:</h3>
+<% end %>
 <ul>
 
 <% @user.songs.each do |song| %>
-    <li>Played <%= pluralize(Play.total_plays(song, @user.id), "Time") %> - <%= link_to "'#{song.title}'", song %> by <%= link_to "'#{song.artist.name}'", artist_path(song.artist) %></li>
+    <li><%= pluralize(Play.total_plays(song, @user.id), "play") %> - <%= link_to "'#{song.title}'", song %> by <%= link_to "'#{song.artist.name}'", artist_path(song.artist) %></li>
 <% end %>
 
 </ul>

@@ -109,3 +109,8 @@ a:hover {
 /* link that has been click excluding navigation*/
 
 /*tags A index li, A show td, G index li, G show li, S index td, Show H3 */
+
+.song_media {
+    display: inline-block;
+    
+}
