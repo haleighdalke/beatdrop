@@ -9,7 +9,8 @@ class PlaysController < ApplicationController
             else
                 Play.create(user_id: session[:user_id], song_id: params[:song_id], num_plays: 1)
             end
-            redirect_to user_path(User.find(session[:user_id]))
+            redirect_to song_path(params[:song_id])
+           # redirect_to user_path(User.find(session[:user_id]))
         else
             flash[:message] = "You must login to play a song"
             redirect_to login_path

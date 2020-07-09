@@ -9,8 +9,13 @@ class UsersController < ApplicationController
     def create
         @user = User.new(user_params)
         # display flash error messages if invalid
-        @user.save
-        redirect_to login_path
+        if @user.save
+            @user.save
+            redirect_to login_path
+        else
+            flash[:message] = "Invalid entry. Please include both name and age."
+            render "new"
+        end
     end
 
     def update

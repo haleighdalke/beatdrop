@@ -2,7 +2,7 @@
 
 <table style="width:50%">
   <tr>
-    <th>Listen</th>
+    <% if logged_in? %><th>Listen</th><% end %>
     <th>Title</th>
     <th>Artist</th>
     <th>Genre</th>
@@ -11,7 +11,7 @@
 <% ordered_songs = @songs.order(:title) %>
 <% ordered_songs.each {|song| %>
   <tr>
-    <td><%= button_to "Play", plays_path, method: :post, params: { song_id: song.id }%></td>
+    <% if logged_in? %><td><%= button_to "Play", plays_path, method: :post, params: { song_id: song.id }%></td><% end %>
     <td><%= link_to song.title, song %></td>
     <td><%= link_to song.artist.name, song.artist %></td>
     <td><%= link_to song.genre.name, song.genre %></td>

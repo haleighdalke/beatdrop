@@ -15,7 +15,7 @@ class AuthController < ApplicationController
             session[:user_id] = @user.id
             redirect_to @user
         else
-            flash[:message] = "Invalid username. Please enter the proper credentials"
+            flash[:message] = "Invalid username. Please enter the proper credentials."
             render :login
         end
 
