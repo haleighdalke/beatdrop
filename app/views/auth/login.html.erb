@@ -1,4 +1,4 @@
-<h1>User Login Portal</h1>
+<h1>User Login Portal</h1><br>
 
 <% if current_user %>
     <h3>You're logged in as "<%= current_user.name %>." Please select an option:</h3>
@@ -6,7 +6,7 @@
         <%= button_to "Logout", logout_path, method: :get %>
 
 <% else %>
-    <h3>Welcome to Beatdrop! Please log in:</h3>
+    <h3>Welcome to BeatDrop! Please log in:</h3>
 
     <%= flash[:message] %><br>
     <%= form_for :auth do |f| %>
