@@ -7,11 +7,11 @@ class ArtistAuthController < ApplicationController
 
         @artist = Artist.find_by(name: params[:artist_auth][:name])
 
-        if @artist
+        if @artist && @artist.authenticate(params[:artist_auth][:password])
             session[:artist_id] = @artist.id
             redirect_to home_path(@artist)
         else
-            flash[:message] = "Invalid username. Please enter the proper credentials."
+            flash[:message] = "Invalid username or password. Please enter the proper credentials."
             render :artist_login
         end
     end
