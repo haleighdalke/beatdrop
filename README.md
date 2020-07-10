@@ -12,7 +12,7 @@
 ## General Info
 This project was created by Haleigh Dalke and Danira Cortez for the purpose of learning Rails, ActiveRecord, HTML, and CSS. Mod2 Final Project at Flatiron School, presented on July 10, 2020.
 
-Repo link: https://github.com/haleighdalke/jokebox
+Repo link: https://github.com/haleighdalke/beatdrop
 
 ## Technologies
 * Rails 6.0.3.2
