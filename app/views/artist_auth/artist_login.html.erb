@@ -1,11 +1,11 @@
-<h1>Artist Login Portal</h1>
+<h1>Artist Login Portal</h1><br>
 
 <% if current_artist %>
     <h3>You're logged in as "<%= current_artist.name %>." Please select an option:</h3>
         <%= button_to "View Profile", home_path(current_artist), method: :get %> <br>
         <%= button_to "Logout", artist_logout_path(current_artist), method: :get %>
 <% else %>    
-    <h3>Please log in:</h3><br>
+    <h3>Welcome to BeatDrop! Please log in:</h3><br>
 
     <%= flash[:message] %>
     
