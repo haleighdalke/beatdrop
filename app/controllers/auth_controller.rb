@@ -26,4 +26,11 @@ class AuthController < ApplicationController
         redirect_to login_path
     end
 
+    def artist_login
+    end
+
+    def verify_artist
+        @artist = Artist.find_by(name: params[:auth][:name])
+    end
+
 end

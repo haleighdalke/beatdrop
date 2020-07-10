@@ -18,7 +18,8 @@ class SongsController < ApplicationController
     end
 
     def destroy
-
+        @song.delete
+        redirect_to home_path
     end
 
     private

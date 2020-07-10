@@ -26,7 +26,6 @@ def get_playlist_data(playlist_id)
     playlist = RestClient::Request.execute(method: :get, url: "https://api.deezer.com/playlist/#{playlist_id}")
     JSON.parse(playlist)
 end
-
 # initialize genres
 genres = ["Rap", "Rock", "R&B", "Country", "Alternative", "Blues", "Indie"]
 genres.each {|genre| Genre.create(name: genre)}
@@ -40,3 +39,5 @@ playlists.each do |playlist_id|
         Song.create(title: track["title"], sound_link: track["preview"], artist_id: Artist.find_or_create_by(name: track["artist"]["name"]).id, genre_id: Genre.all.sample.id)
     end
 end
+
+

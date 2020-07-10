@@ -12,8 +12,8 @@
     <tr>
         <td><%= song.title %></td>
         <td><%= song.genre.name %></td>
-        <td><%= button_to "Edit", edit_song_path(song), method: :patch, params: {song_id: song.id} %></td>
-        <td><%= button_to "Delete", song, method: :delete, params: {song_id: song.id} %></td>
+        <td><%= button_to "Edit", edit_song_path(song), method: :get %></td>
+        <td><%= button_to "Delete", song, method: :delete %></td>
     </tr>
 <% } %>
 </table>
@@ -22,4 +22,4 @@
 <br>
 <br>
 <br>
-<%= button_to "Add Song", new_song_path, method: :post %>
+<%= button_to "Add Song", new_song_path, method: :get %>
