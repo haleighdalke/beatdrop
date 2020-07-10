@@ -85,7 +85,6 @@ body {
 }
 
 .transparent a:hover {
-    /* color: #cca300 !important; */
     color: #FF9933 !important;
     font-weight: bold;
 
@@ -106,7 +105,6 @@ body {
 }
 
 h1 {
-    /* color: #cca300; */
     color: orange;
     text-align: center;
 }
@@ -130,26 +128,17 @@ li {
 }
 
 a:link {
-    /* color: orange; */
     color: #cca300;
 }
 
 a:visited {
-    /* color: orange; */
     color: #cca300;
 }
 
 input {
     background-color: black;
-    /* color: orange; */
     color: #cca300;
 }
-
-
-
-/* link that has been click excluding navigation*/
-
-/*tags A index li, A show td, G index li, G show li, S index td, Show H3 */
 
 
 
