@@ -23,13 +23,15 @@
 
 .nav-brand {
     font-size: 55px;
-    color: white !important;
+    color: black !important;
+    text-shadow: 0 0 5px orange;
     padding: 30px;
     font-family: 'Ultra', serif;
 }
 
 .nav-item{
-    color: white !important;
+    color: black !important;
+    text-shadow: 0 0 5px orange;
     float: right;
     padding: 28px;
     font-family: 'Ultra', serif;
@@ -50,7 +52,8 @@
 
 a.footer-item {
     font-size: 16px;
-    color: white !important;
+    color: black !important;
+    text-shadow: 0 0 5px orange;
     font-family: 'Ultra', serif;
     padding: 10px;
     display:inline-block
@@ -101,7 +104,7 @@ body {
 }
 
 h1 {
-    font-family: Verdana, Geneva, sans-serif;
+    text-align: center;
 }
 
 th, td {
@@ -116,7 +119,7 @@ tr:hover {
 }
 
 li {
-    color: white;
+    color: transparent;
 }
 /* the dots from list*/
 
