@@ -31,6 +31,7 @@ Now go to the Artist model file and comment out `has_secure_password` (the seed 
 ```
 $ rails db:migrate      # set up tables
 $ rails db:seed         # seed the database from Deezer API
+$ rails s               # run your local server
 ```
 The program should be all set up and ready for you! Start by going to http://localhost:3000/login. 
 
