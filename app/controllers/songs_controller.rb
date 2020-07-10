@@ -15,7 +15,8 @@ class SongsController < ApplicationController
     end
 
     def update
-
+        @song.update(song_params)
+        redirect_to home_path(current_artist)
     end
 
     def destroy

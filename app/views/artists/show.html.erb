@@ -1,4 +1,7 @@
-<h1><%= "#{@artist.name}'s Songs" %></h1>
+
+  <h1><%= "#{@artist.name}'s Songs" %></h1>
+  <br>
+  <img src="<%= @artist.image %>" alt="Artist Image" class="artist-image">
 
 <table style="width:100%">
   <tr>
@@ -15,3 +18,4 @@
   </tr>
 <% } %>
 </table>
+

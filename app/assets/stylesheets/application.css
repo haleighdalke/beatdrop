@@ -57,7 +57,7 @@ a.footer-item {
 }
 
 
-body {
+.background-settings {
     background-color: #000000 !important; /* Used if the image is unavailable */
     background-image: url("disc.png") !important; /* The image used */
     background-attachment: fixed;
@@ -84,6 +84,13 @@ body {
     color: #FF9933 !important;
     font-weight: bold;
 
+}
+
+.artist-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
 }
 
 h1 {

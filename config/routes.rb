@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get '/artistlogin', to: 'artist_auth#artist_login', as: 'artist_login'
   post '/artistlogin', to: 'artist_auth#verify_artist'
 
-  get 'artists/:id/logout', to: 'artist_auth#logout', as: 'artist_logout'
+  get '/artists/:id/logout', to: 'artist_auth#logout', as: 'artist_logout'
   
   get '/artists/:id/home', to: 'artists#home', as: 'home'
 

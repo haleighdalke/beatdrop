@@ -9,7 +9,6 @@
 <div class="song_media">
     <% if logged_in?%>
         <audio src="<%= @song.sound_link if @song.sound_link%>" autoplay controls></audio>
-        <img src="<%= @song.image if @song.image %>" alt="Image of <%= @song.title %>" width="500" height="600">
     <% else %>
         <h6><i>Sorry, must be logged in to view audio sample.</i></h6>
     <% end %>
