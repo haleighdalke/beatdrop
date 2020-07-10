@@ -1,6 +1,6 @@
 class ArtistsController < ApplicationController
 
-    before_action :find_artist, only:[:show, :edit, :update, :home]
+    before_action :find_artist, only: [:show, :edit, :update, :home]
 
     def index
         @artists = Artist.all
@@ -13,7 +13,7 @@ class ArtistsController < ApplicationController
     def create
         @artist = Artist.new(artist_params)
         if @artist.save
-            redirect_to home_path
+            redirect_to artist_login_path
         else
             flash[:message] = "Invalid entry. Please include both name and password."
             render 'new'

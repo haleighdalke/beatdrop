@@ -1,0 +1,22 @@
+<h1>Welcome to Beatdrop! </h1>
+
+<% if current_artist %>
+    <h3>You're logged in as "<%= current_artist.name %>." Please select an option:</h3>
+        <%= button_to "View Profile", home_path(current_artist), method: :get %> <br>
+        <%= button_to "Logout", artist_logout_path, method: :get %>
+<% else %>    
+    <h3>Please log in:</h3><br>
+
+    <%= flash[:message] %><br>
+    <br>
+    <%= form_for :artist_auth do |f| %>
+
+        <%= f.label "Name" %>
+        <%= f.text_field :name %><br>
+
+        <%= f.label "Password" %>
+        <%= f.password_field :password %><br>
+
+        <%= f.submit "Log In"%>
+    <% end %>
+<% end %>

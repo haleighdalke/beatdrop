@@ -5,6 +5,8 @@
     <%= f.label "Genre" %>
     <%= f.collection_select(:genre_id, Genre.all, :id, :name) %><br>
     
+    <%= f.hidden_field :artist_id, value: current_artist.id %><br>
+    
     <%= f.label "Image" %>
     <%= f.text_field :image %><br>
 

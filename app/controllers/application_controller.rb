@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
 
-    helper_method :current_user, :redirect_user, :logged_in?
+    helper_method :current_user, :redirect_user, :logged_in?, :current_artist
 
     def logged_in?
         !!current_user
@@ -15,6 +15,10 @@ class ApplicationController < ActionController::Base
             flash[:message] = "Please login to view this data"
             redirect_to login_path
         end
+    end
+
+    def current_artist
+        artist = Artist.find(session[:artist_id]) if session[:artist_id]
     end
 
 end
