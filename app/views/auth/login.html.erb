@@ -1,4 +1,4 @@
-<h1>Welcome to Beatdrop! </h1>
+<h1>User Login Portal</h1>
 
 <% if current_user %>
     <h3>You're logged in as "<%= current_user.name %>." Please select an option:</h3>
@@ -6,10 +6,9 @@
         <%= button_to "Logout", logout_path, method: :get %>
 
 <% else %>
-    <h3>Please login using your name:</h3>
+    <h3>Welcome to Beatdrop! Please log in:</h3>
 
-    <%= flash[:message] %>
-    <br>
+    <%= flash[:message] %><br>
     <%= form_for :auth do |f| %>
         <%= f.label "Name" %>
         <%= f.text_field :name %>
@@ -17,7 +16,7 @@
         <%= f.submit "Login" %>
     <% end %><br>
     <br>
-    <h6>If you are an artists log in <%= link_to "HERE", artist_login_path %></h6>
-    <% end %>
+    <h6>Or sign up as a new user <%= link_to "HERE", new_user_path %></h6>
+<% end %>
     
     

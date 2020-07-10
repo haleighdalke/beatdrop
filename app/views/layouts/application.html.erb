@@ -11,17 +11,20 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <div class="background-settings">
   <body>
     <nav class="header sticky-top">
       <a class="nav-brand">BeatDrop</a>
-      <% if !logged_in? %>
-        <a class="nav-item" href="<%=new_user_path%>">Sign Up</a>
-        <a class="nav-item" href="<%=login_path%>">Log In</a>
-      <% else %>
-        <a class="nav-item" href="<%=logout_path%>">Logout</a>
+      <% if !logged_in? && !current_artist %>
+        <a class="nav-item" href="<%=artist_login_path%>">Artist</a>
+        <a class="nav-item" href="<%=login_path%>">User</a>
+      <% elsif logged_in? && !current_artist %>
+        <a class="nav-item" href="<%=logout_path(current_user)%>">Logout</a>
         <a class="nav-item" href="<%=edit_user_path(current_user)%>">Settings</a>
         <a class="nav-item" href="<%=user_path(current_user)%>">My Profile</a>
+      <% elsif current_artist && !logged_in? %>
+        <a class="nav-item" href="<%=artist_logout_path(current_artist)%>">Logout</a>
+        <a class="nav-item" href="<%=edit_artist_path(current_artist)%>">Settings</a>
+        <a class="nav-item" href="<%=home_path(current_artist)%>">My Profile</a>
       <% end %>
     </nav>
 
@@ -38,5 +41,5 @@
     
     
   </body>
-  </div>
+  
 </html>

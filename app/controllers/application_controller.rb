@@ -1,8 +1,12 @@
 class ApplicationController < ActionController::Base
 
-    helper_method :current_user, :redirect_user, :logged_in?, :current_artist
+    helper_method :current_user, :redirect_user, :logged_in?, :current_artist, :artist_logged_in?
 
     def logged_in?
+        !!current_user
+    end
+
+    def artist_logged_in?
         !!current_user
     end
 

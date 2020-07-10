@@ -1,5 +1,21 @@
-<h1>Update Your Password</h1>
+<h1>Update Your Profile</h1>
 
 <%= flash[:message] %><br>
 
-<%= render 'form' %>
+<%= form_for @artist do |f| %>
+    <%= f.label "Name" %>
+    <%= f.text_field :name %><br>
+
+    <%= f.label "Profile Image"%>
+    <%= f.text_field :image %><br>
+
+    <br>
+    <%= f.label "Password" %>
+    <%= f.password_field :password %><br>
+
+    <%= f.label "Password Confirmation" %>
+    <%= f.password_field :password_confirmation %>
+
+    <br><br>
+    <%= f.submit %>
+<% end %>
