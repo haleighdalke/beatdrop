@@ -71,7 +71,8 @@ body {
 
 .transparent {
     background-color: rgba(0, 0, 0, 0.5);
-    color: #cca300;
+    /* color: #cca300; */
+    color: orange;
     width: 70%;
     height: auto;
     padding: 20px;
@@ -84,6 +85,7 @@ body {
 }
 
 .transparent a:hover {
+    /* color: #cca300 !important; */
     color: #FF9933 !important;
     font-weight: bold;
 
@@ -104,8 +106,8 @@ body {
 }
 
 h1 {
-    /* color: rgb(158, 115, 38); */
-    color: #cca300;
+    /* color: #cca300; */
+    color: orange;
     text-align: center;
 }
 
@@ -126,20 +128,21 @@ tr:hover {
 li {
     color: transparent;
 }
-/* the dots from list*/
-
 
 a:link {
-    color: orange;
+    /* color: orange; */
+    color: #cca300;
 }
-/* link that has not been click excluding navigation*/
 
 a:visited {
-    color: orange;
+    /* color: orange; */
+    color: #cca300;
 }
 
 input {
-    background-color: lightslategray;
+    background-color: black;
+    /* color: orange; */
+    color: #cca300;
 }
 
 
