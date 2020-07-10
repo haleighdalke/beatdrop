@@ -71,7 +71,7 @@ body {
 
 .transparent {
     background-color: rgba(0, 0, 0, 0.5);
-    color: #fff;
+    color: #E7E78E;
     width: 70%;
     height: auto;
     padding: 20px;
@@ -104,6 +104,8 @@ body {
 }
 
 h1 {
+    color: rgb(158, 115, 38);
+    outline-color: black;
     text-align: center;
 }
 
