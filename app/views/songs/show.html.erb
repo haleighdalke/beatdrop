@@ -3,14 +3,20 @@
 
 <h3>by <%= link_to @song.artist.name, @song.artist %></h3>
 <h3>Genre: <%= link_to @song.genre.name, @song.genre %></h3>
-
 <br>
-<h3>Preview: </h3>
-<div class="song_media">
-    <% if logged_in?%>
-        <audio src="<%= @song.sound_link if @song.sound_link%>" controls></audio>
-    <% else %>
-        <h6><i>Sorry, must be logged in to view audio sample.</i></h6>
-    <% end %>
 
-</div>
+
+
+<% if logged_in? %>
+    <% if !@song.video_link.blank? %>
+        <iframe width="560" height="315" src="<%= @song.video_link %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="song_media"></iframe>
+        <br>
+    <% end %>
+    
+    <% if !@song.sound_link.blank? %>
+        <h3>Preview: </h3>
+        <audio src="<%= @song.sound_link%>" controls></audio><br><br>
+    <% end %>
+<% else %>
+    <h6><i>Sorry, must be logged in to view audio and video sample.</i></h6>
+<% end %>

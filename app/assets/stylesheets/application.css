@@ -93,6 +93,13 @@ body {
     width: 50%;
 }
 
+.song_media {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
 h1 {
     font-family: Verdana, Geneva, sans-serif;
 }
@@ -129,8 +136,5 @@ a:visited {
 
 /*tags A index li, A show td, G index li, G show li, S index td, Show H3 */
 
-/* .song_media {
-    display: inline-block;
 
-} */
 
