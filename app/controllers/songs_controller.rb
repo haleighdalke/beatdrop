@@ -1,6 +1,6 @@
 class SongsController < ApplicationController
 
-    before_action :find_song, only:[:show,:edit, :update, :delete]
+    before_action :find_song, only:[:show,:edit, :update, :destroy]
     def index
         @songs = Song.all
     end
@@ -11,6 +11,7 @@ class SongsController < ApplicationController
 
     def create
         @song = Song.create(song_params)
+        redirect_to home_path(current_artist)
     end
 
     def update
@@ -19,13 +20,13 @@ class SongsController < ApplicationController
 
     def destroy
         @song.delete
-        redirect_to home_path
+        redirect_to home_path(current_artist)
     end
 
     private
 
     def song_params
-        params.require(:song).permit(:title, :image, :sound_link, :video_link)
+        params.require(:song).permit(:title, :genre_id, :artist_id, :image, :sound_link, :video_link)
     end
 
     def find_song
